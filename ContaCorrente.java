@@ -1,14 +1,21 @@
 
 public class ContaCorrente extends Conta {
     private float limite;
-    private float taxaManutencao;
+    private float taxaManutencao = 2.5f;
+
+    private float saldo = getSaldo();
 
     private float saldo = getSaldo();
 
     @Override
     public boolean sacar(float valor) {
-        // TODO Auto-generated method stub
-        return false;
+        setSaldo(calculaTaxa() - valor);
+        return true;
+    }
+
+    private float calculaTaxa() {
+        saldo -= taxaManutencao;
+        return saldo;
     }
 
     @Override
