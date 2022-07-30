@@ -1,7 +1,9 @@
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta {
     private float limite;
     private float taxaManutencao;
+
+    private float saldo = getSaldo();
 
     @Override
     public boolean sacar(float valor) {
@@ -17,8 +19,13 @@ public class ContaCorrente extends Conta{
 
     @Override
     public boolean depositar(float valor) {
-        // TODO Auto-generated method stub
-        return false;
+        if (saldo + valor > limite) {
+            System.out.println("Limite execedido!");
+            return false;
+        } else {
+            setSaldo(saldo + valor);
+            return true;
+        }
     }
 
     @Override
