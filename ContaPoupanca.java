@@ -1,7 +1,8 @@
 
 public class ContaPoupanca extends Conta {
-	
+
 	private float rendimento;
+	private float saldo = getSaldo();
 
 	@Override
 	public boolean sacar(float valor) {
@@ -17,14 +18,14 @@ public class ContaPoupanca extends Conta {
 
 	@Override
 	public boolean depositar(float valor) {
-		// TODO Auto-generated method stub
-		return false;
+		setSaldo(saldo + valor);
+		return true;
 	}
 
 	@Override
 	public void exibirExtrato() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
