@@ -6,8 +6,8 @@ public class ContaPoupanca extends Conta {
 
 	@Override
 	public boolean sacar(float valor) {
-		// TODO Auto-generated method stub
-		return false;
+		setSaldo(saldo - valor); // TODO Auto-generated method stub
+		return true;
 	}
 
 	@Override
