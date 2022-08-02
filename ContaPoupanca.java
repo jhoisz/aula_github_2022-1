@@ -37,10 +37,4 @@ public class ContaPoupanca extends Conta {
 		return true;
 	}
 
-	@Override
-	public void exibirExtrato() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

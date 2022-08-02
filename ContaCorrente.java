@@ -11,6 +11,12 @@ public class ContaCorrente extends Conta {
             setSaldo(saldo - valor);
             setExtrato(this.getExtrato()+"Saque: "+valor.toString()+"\n");
             return true;
+        }else if(saldo+limite>=valor){
+            setExtrato(this.getExtrato()+"Saque: "+valor.toString()+"\n");
+            valor=valor-saldo;
+            setSaldo(0);
+            setlimite(limite-valor);
+            return true;
         }
         return false;
     }
@@ -28,14 +34,9 @@ public class ContaCorrente extends Conta {
 
     @Override
     public boolean depositar(float valor) {
-        if (saldo + valor > limite) {
-            System.out.println("Limite execedido!");
-            return false;
-        } else {
-            setSaldo(saldo + valor);
-            setExtrato(this.getExtrato()+"Depósito: "+valor.toString()+"\n");
-            return true;
-        }
+        setSaldo(saldo + valor);
+        setExtrato(this.getExtrato()+"Depósito: "+valor.toString()+"\n");
+        return true;
     }
 
     public boolean saldo(Conta conta) {
@@ -43,10 +44,11 @@ public class ContaCorrente extends Conta {
         return true;
     }
 
-    @Override
-    public void exibirExtrato() {
-        // TODO Auto-generated method stub
-
+    public float getLimite() {
+        return limite;
     }
 
+    public void setLimite(float limite) {
+        this.limite = limite;
+    }
 }
