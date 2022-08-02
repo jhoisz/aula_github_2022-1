@@ -25,7 +25,7 @@ public class ContaCorrente extends Conta {
         }
         return false;
     }
-
+    
     @Override
     public boolean depositar(float valor) {
         if (saldo + valor > limite) {
@@ -35,6 +35,11 @@ public class ContaCorrente extends Conta {
             setSaldo(saldo + valor);
             return true;
         }
+    }
+
+    public boolean saldo(Conta conta) {
+        System.out.println("Seu saldo: " + conta.getSaldo());
+        return true;
     }
 
     @Override

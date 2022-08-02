@@ -26,6 +26,11 @@ public class ContaPoupanca extends Conta {
 		return true;
 	}
 
+	public boolean saldo(Conta conta) {
+		System.out.println("Seu saldo: " + conta.getSaldo());
+		return true;
+	}
+
 	@Override
 	public void exibirExtrato() {
 		// TODO Auto-generated method stub
