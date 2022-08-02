@@ -26,7 +26,7 @@ public class Banco {
 
     public boolean buscaCliente(String cpf) {
         for (Cliente cliente : clientes) {
-            if (cliente.getCpf() == cpf) {
+            if (cliente.getCpf().equals(cpf)) {
                 return true;
             }
         }
@@ -39,7 +39,7 @@ public class Banco {
 
     public Cliente getCliente(String cpf) {
         for (Cliente cliente : clientes) {
-            if (cliente.getCpf() == cpf) {
+            if (cliente.getCpf().equals(cpf)) {
                 return cliente;
             }
         }
