@@ -17,6 +17,12 @@ public class ContaCorrente extends Conta {
             setSaldo(0);
             setLimite(limite-valor);
             return true;
+        }else if(saldo+limite>=valor){
+            setExtrato(this.getExtrato()+"Saque: "+valor.toString()+"\n");
+            valor=valor-saldo;
+            setSaldo(0);
+            setlimite(limite-valor);
+            return true;
         }
         return false;
     }
