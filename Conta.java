@@ -9,7 +9,9 @@ public abstract class Conta {
 	public abstract boolean transferir(Conta conta, float valor);
 	
 	public abstract boolean depositar(float valor);
-	
+
+	public abstract boolean saldo(Conta conta);
+
 	public abstract void exibirExtrato();
 
 	public int getNumero() {
