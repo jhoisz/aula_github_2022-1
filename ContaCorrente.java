@@ -3,25 +3,23 @@ public class ContaCorrente extends Conta {
     private float limite;
     private float taxaManutencao = 2.5f;
 
-    private float saldo;
-
     @Override
     public boolean sacar(float valor) {
         if (saldo >= valor) {
             setSaldo(saldo - valor);
-            setExtrato(this.getExtrato()+"Saque: "+valor+"\n");
+            setExtrato(this.getExtrato() + "Saque: " + valor + "\n");
             return true;
-        }else if(saldo+limite>=valor){
-            setExtrato(this.getExtrato()+"Saque: "+valor+"\n");
-            valor=valor-saldo;
+        } else if (saldo + limite >= valor) {
+            setExtrato(this.getExtrato() + "Saque: " + valor + "\n");
+            valor = valor - saldo;
             setSaldo(0);
-            setLimite(limite-valor);
+            setLimite(limite - valor);
             return true;
-        }else if(saldo+limite>=valor){
-            setExtrato(this.getExtrato()+"Saque: "+valor.toString()+"\n");
-            valor=valor-saldo;
+        } else if (saldo + limite >= valor) {
+            setExtrato(this.getExtrato() + "Saque: " + valor + "\n");
+            valor = valor - saldo;
             setSaldo(0);
-            setlimite(limite-valor);
+            setLimite(limite - valor);
             return true;
         }
         return false;
@@ -32,7 +30,7 @@ public class ContaCorrente extends Conta {
         if (saldo > valor) {
             saldo = saldo - valor;
             conta.setSaldo(conta.getSaldo() + valor);
-            setExtrato(this.getExtrato()+"Transferência: "+valor+"\n");
+            setExtrato(this.getExtrato() + "Transferência: " + valor + "\n");
             return true;
         }
         return false;
@@ -41,7 +39,7 @@ public class ContaCorrente extends Conta {
     @Override
     public boolean depositar(float valor) {
         setSaldo(saldo + valor);
-        setExtrato(this.getExtrato()+"Depósito: "+valor+"\n");
+        setExtrato(this.getExtrato() + "Depósito: " + valor + "\n");
         return true;
     }
 
