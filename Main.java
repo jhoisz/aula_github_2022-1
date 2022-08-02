@@ -18,7 +18,7 @@ public class Main {
 					System.out.println("Digite o CPF do cliente:");
 					cpf = scan.next();
 
-					if (banco.getCliente(cpf) != null) {
+					if (banco.buscaCliente(cpf)) {
 						cliente = banco.getCliente(cpf);
 						System.out.println("Qual conta deseja criar?\n1-Poupança\n2-Corrente");
 						op = scan.next();
@@ -54,6 +54,43 @@ public class Main {
 					banco.addCliente(new Cliente(cpf, nome));
 					break;
 				case 3:
+					Menu subMenu = new Menu("Operações", Arrays.asList("Sacar", "Depositar", "Transferir", "Extrato"));
+
+					System.out.println("Digite o CPF do cliente:");
+					cpf = scan.next();
+
+					if (banco.buscaCliente(cpf)) {
+						cliente = banco.getCliente(cpf);
+
+						switch(subMenu.getSelection()) {
+							case 1:
+								
+								System.out.println("Digite o valor do saque:");
+								float valor = scan.nextFloat();
+	
+								if(cliente.getContas().get(0).sacar(valor)) {
+									System.out.println("Saque realizado com sucesso!\nSeu novo saldo é: " + cliente.getContas().get(0).getSaldo());
+								} else {
+									System.out.println("Saque falhou!");
+								}
+
+								break;
+							case 2:
+	
+								break;
+							case 3:
+	
+								break;
+							case 4:
+	
+								break;
+							default:
+	
+								break;
+						}
+					} else {
+						System.out.println("Cliente não encontrado");
+					}
 
 					break;
 				case 4:
