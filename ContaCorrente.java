@@ -17,7 +17,7 @@ public class ContaCorrente extends Conta {
 
     @Override
     public boolean transferir(Conta conta, float valor) {
-        if (saldo > valor) {
+        if (saldo >= valor) {
             saldo = saldo - valor;
             conta.setSaldo(conta.getSaldo() + valor);
             setExtrato(this.getExtrato()+"Transferência: "+valor.toString()+"\n");
