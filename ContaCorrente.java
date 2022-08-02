@@ -37,10 +37,6 @@ public class ContaCorrente extends Conta {
         }
     }
 
-    public boolean saldo(Conta conta) {
-        System.out.println("Seu saldo: " + conta.getSaldo());
-        return true;
-    }
     @Override
     public void exibirExtrato() {
         // TODO Auto-generated method stub
