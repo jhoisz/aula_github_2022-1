@@ -55,7 +55,7 @@ public class Main {
 					break;
 				case 3:
 					Menu subMenu = new Menu("Operações", Arrays.asList("Sacar", "Depositar", "Transferir", "Extrato"));
-
+					float valor = 0;
 					System.out.println("Digite o CPF do cliente:");
 					cpf = scan.next();
 
@@ -64,9 +64,8 @@ public class Main {
 
 						switch(subMenu.getSelection()) {
 							case 1:
-								
 								System.out.println("Digite o valor do saque:");
-								float valor = scan.nextFloat();
+								valor = scan.nextFloat();
 	
 								if(cliente.getContas().get(0).sacar(valor)) {
 									System.out.println("Saque realizado com sucesso!\nSeu novo saldo é: " + cliente.getContas().get(0).getSaldo());
@@ -76,13 +75,42 @@ public class Main {
 
 								break;
 							case 2:
-	
+								
+								System.out.println("Digite o valor de deposito:");
+								valor = scan.nextFloat();
+
+								if(cliente.getContas().get(0).depositar(valor)) {
+									System.out.println("Deposito realizado com sucesso!\nSeu novo saldo é: " + cliente.getContas().get(0).getSaldo());
+								} else {
+									System.out.println("SDeposito falhou, limite excedido!\n");
+								}
+								
 								break;
 							case 3:
-	
+								
+								System.out.println("Digite o CPF da outra conta:");
+								cpf = scan.next();
+
+								if (banco.buscaCliente(cpf)) {
+									Cliente clienteT = banco.getCliente(cpf);
+
+									System.out.println("Digite o valor de transferencia:");
+									valor = scan.nextFloat();
+
+									if(cliente.getContas().get(0).transferir(clienteT.getContas().get(0), valor)) {
+										System.out.println("Transferencia realizada com sucesso!\nSeu novo saldo é: " + cliente.getContas().get(0).getSaldo());
+									} else {
+										System.out.println("Transferencia falhou!\n");
+									}
+								} else {
+									System.out.println("Cliente não encontrado");
+								}
+
 								break;
 							case 4:
-	
+
+								cliente.getContas().get(0).exibirExtrato();
+								
 								break;
 							default:
 	
