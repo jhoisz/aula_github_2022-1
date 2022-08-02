@@ -5,8 +5,6 @@ public class ContaCorrente extends Conta {
 
     private float saldo = getSaldo();
 
-    private float saldo = getSaldo();
-
     @Override
     public boolean sacar(float valor) {
         setSaldo(calculaTaxa() - valor);
@@ -20,7 +18,11 @@ public class ContaCorrente extends Conta {
 
     @Override
     public boolean transferir(Conta conta, float valor) {
-        // TODO Auto-generated method stub
+        if (saldo > valor) {
+            saldo = saldo - valor;
+            conta.setSaldo(conta.getSaldo() + valor);
+            return true;
+        }
         return false;
     }
 
