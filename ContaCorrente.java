@@ -7,13 +7,11 @@ public class ContaCorrente extends Conta {
 
     @Override
     public boolean sacar(float valor) {
-        setSaldo(calculaTaxa() - valor);
-        return true;
-    }
-
-    private float calculaTaxa() {
-        saldo -= taxaManutencao;
-        return saldo;
+        if (saldo >= valor) {
+            setSaldo(saldo - valor); // TODO Auto-generated method stub
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -25,7 +23,7 @@ public class ContaCorrente extends Conta {
         }
         return false;
     }
-    
+
     @Override
     public boolean depositar(float valor) {
         if (saldo + valor > limite) {
