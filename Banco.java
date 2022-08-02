@@ -2,12 +2,13 @@ import java.util.ArrayList;
 
 public class Banco {
     private String nome;
-    private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     private int id = 0;
 
     public int getId() {
         return id;
     }
+
+    private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -19,6 +20,7 @@ public class Banco {
 
     public void addCliente(Cliente cliente) {
         id++;
+
         clientes.add(cliente);
     }
 
