@@ -2,13 +2,13 @@
 public class ContaPoupanca extends Conta {
 
 	private float rendimento;
-	private float saldo = getSaldo();
+	private float saldo;
 
 	@Override
 	public boolean sacar(float valor) {
 		if (saldo >= valor) {
 			setSaldo(saldo - valor);
-			setExtrato(this.getExtrato()+"Saque: "+valor.toString()+"\n");
+			setExtrato(this.getExtrato()+"Saque: "+valor+"\n");
 			return true;
 		}
 		return false;
@@ -19,7 +19,7 @@ public class ContaPoupanca extends Conta {
 		if (saldo >= valor) {
 			setSaldo(saldo - valor);
 			conta.setSaldo(conta.getSaldo() + valor);
-			setExtrato(this.getExtrato()+"Transferência: "+valor.toString()+"\n");
+			setExtrato(this.getExtrato()+"Transferência: "+valor+"\n");
 			return true;
 		}
 		return false;
@@ -28,7 +28,7 @@ public class ContaPoupanca extends Conta {
 	@Override
 	public boolean depositar(float valor) {
 		setSaldo(saldo + valor);
-		setExtrato(this.getExtrato()+"Depósito: "+valor.toString()+"\n");
+		setExtrato(this.getExtrato()+"Depósito: "+valor+"\n");
 		return true;
 	}
 

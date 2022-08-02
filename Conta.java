@@ -1,8 +1,8 @@
 public abstract class Conta {
 	
 	private int numero;
-	private float saldo;
-	protected String extrato;
+	private float saldo = 0;
+	protected String extrato="";
 	private Cliente titular;
 	
 	public abstract boolean sacar(float valor);
@@ -12,7 +12,7 @@ public abstract class Conta {
 	public abstract boolean depositar(float valor);
 
 	public abstract boolean saldo(Conta conta);
-	public void exibirExtrato(System.out.println(this.extrato));
+	public void exibirExtrato(){System.out.println(this.extrato);};
 
 	public int getNumero() {
 		return numero;
